@@ -1,0 +1,183 @@
+﻿<Window x:Class="SpaceCleaning.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:ib="clr-namespace:SpaceCleaning.BaseControl"
+        xmlns:local="clr-namespace:SpaceCleaning"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="系统空间清理工具"
+        Width="900"
+        Height="600"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        mc:Ignorable="d">
+
+    <Border Background="{StaticResource BackgroundBrush}"
+            BorderBrush="{StaticResource GrayBrush}"
+            BorderThickness="1"
+            ClipToBounds="True"
+            CornerRadius="10"
+            MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="20" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Margin="10,0,0,0"
+                                VerticalAlignment="Center"
+                                MouseLeftButtonDown="TitleBar_MouseLeftButtonDown"
+                                Orientation="Horizontal">
+                        <Image Width="40"
+                               Height="40"
+                               Margin="0,0,8,0"
+                               Source="/Resources/titleicon.png" />
+                        <TextBlock VerticalAlignment="Center"
+                                   FontSize="16"
+                                   FontWeight="SemiBold"
+                                   Foreground="White"
+                                   Text="空间清理工具" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Orientation="Horizontal">
+                        <Button Click="MinimizeButton_Click"
+                                Content="—"
+                                Cursor="Hand"
+                                Style="{StaticResource TitleBarButton}" />
+
+                        <Button Click="CloseButton_Click"
+                                Content="✕"
+                                Cursor="Hand"
+                                Style="{StaticResource TitleBarCloseButton}" />
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <StackPanel x:Name="Left_Button"
+                        Grid.Row="1"
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        Background="{StaticResource BackgroundBrush}">
+                <ib:ImageButton x:Name="BtnSystemClean"
+                                Width="50"
+                                Height="50"
+                                Click="SystemCleanClick"
+                                Hover="/Resources/systemcleanhover.png"
+                                IsSelected="False"
+                                Normal="/Resources/systemclean.png"
+                                Pressed="/Resources/systemcleanpressed.png"
+                                ToolTip="日志、缓存、临时文件等清理"
+                                ToolTipService.BetweenShowDelay="50"
+                                ToolTipService.InitialShowDelay="100" />
+                <ib:ImageButton x:Name="BtnAppClean"
+                                Width="50"
+                                Height="50"
+                                Click="AppCleanClick"
+                                Hover="/Resources/appcleanhover.png"
+                                IsSelected="False"
+                                Normal="/Resources/appclean.png"
+                                Pressed="/Resources/appcleanpressed.png"
+                                ToolTip="清理软件垃圾"
+                                ToolTipService.BetweenShowDelay="50"
+                                ToolTipService.InitialShowDelay="100" />
+                <ib:ImageButton x:Name="BtnPrivacyClean"
+                                Width="50"
+                                Height="50"
+                                Click="PrivacyCleanClick"
+                                Hover="/Resources/privacycleanhover.png"
+                                IsSelected="False"
+                                Normal="/Resources/privacyclean.png"
+                                Pressed="/Resources/privacycleanpressed.png"
+                                ToolTip="清理隐私信息"
+                                ToolTipService.BetweenShowDelay="50"
+                                ToolTipService.InitialShowDelay="100" />
+                <ib:ImageButton x:Name="BtnRegistryClean"
+                                Width="50"
+                                Height="50"
+                                Click="RegistryCleanClick"
+                                Hover="/Resources/registrycleanhover.png"
+                                IsSelected="False"
+                                Normal="/Resources/registryclean.png"
+                                Pressed="/Resources/registrycleanpressed.png"
+                                ToolTip="清理注册表"
+                                ToolTipService.BetweenShowDelay="50"
+                                ToolTipService.InitialShowDelay="100" />
+                <ib:ImageButton x:Name="BtnPluginClean"
+                                Width="50"
+                                Height="50"
+                                Click="PluginCleanClick"
+                                Hover="/Resources/plugincleanhover.png"
+                                IsSelected="False"
+                                Normal="/Resources/pluginclean.png"
+                                Pressed="/Resources/plugincleanpressed.png"
+                                ToolTip="清理插件"
+                                ToolTipService.BetweenShowDelay="50"
+                                ToolTipService.InitialShowDelay="100" />
+                <ib:ImageButton x:Name="BtnFileShred"
+                                Width="50"
+                                Height="50"
+                                Click="FileShredClick"
+                                Hover="/Resources/fileshredhover.png"
+                                IsSelected="False"
+                                Normal="/Resources/fileshred.png"
+                                Pressed="/Resources/fileshredpressed.png"
+                                ToolTip="粉碎垃圾文件"
+                                ToolTipService.BetweenShowDelay="50"
+                                ToolTipService.InitialShowDelay="100" />
+                <ib:ImageButton x:Name="BtnRecycleBin"
+                                Width="50"
+                                Height="50"
+                                Click="RecyCleBinClick"
+                                Hover="/Resources/recyckebinhover.png"
+                                IsSelected="False"
+                                Normal="/Resources/recyclebin.png"
+                                Pressed="/Resources/recyclebinpressed.png"
+                                ToolTip="回收站"
+                                ToolTipService.BetweenShowDelay="50"
+                                ToolTipService.InitialShowDelay="100" />
+            </StackPanel>
+
+            <Grid Grid.Row="1" Grid.Column="1">
+                <ContentControl x:Name="MainContent" />
+            </Grid>
+
+            <Grid Grid.Row="2"
+                  Grid.Column="1"
+                  Height="30"
+                  VerticalAlignment="Center"
+                  Background="{StaticResource GrayDarkBrush}">
+                <ProgressBar x:Name="ProgressBar"
+                             Width="700"
+                             Height="5"
+                             Background="{StaticResource GrayDarkBrush}"
+                             Foreground="{StaticResource GoldBrush}"
+                             IsIndeterminate="True"
+                             Maximum="100"
+                             Minimum="0"
+                             Visibility="Hidden" />
+            </Grid>
+            <Border Grid.Row="3"
+                    Grid.Column="1"
+                    Background="{StaticResource GrayDarkBrush}"
+                    CornerRadius="0 0 10 0" />
+        </Grid>
+    </Border>
+</Window>

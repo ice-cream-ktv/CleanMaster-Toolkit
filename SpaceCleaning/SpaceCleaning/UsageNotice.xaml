@@ -1,0 +1,83 @@
+﻿<Window x:Class="SpaceCleaning.UsageNotice"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:SpaceCleaning"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="使用须知"
+        Width="800"
+        Height="450"
+        Background="{StaticResource BackgroundBrush}"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        mc:Ignorable="d">
+
+    <Border Padding="10"
+            BorderBrush="{StaticResource GoldBrush}"
+            BorderThickness="1"
+            CornerRadius="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--  标题  -->
+            <TextBlock Margin="0,10,0,20"
+                       HorizontalAlignment="Center"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Foreground="{StaticResource GoldBrush}"
+                       Text="使用须知" />
+
+            <!--  内容区域  -->
+            <ScrollViewer Grid.Row="1">
+                <TextBlock FontSize="14"
+                           Foreground="White"
+                           TextWrapping="Wrap">
+                    <Run FontSize="18"
+                         FontWeight="Bold"
+                         Text="工具简介：" />
+                    <LineBreak />
+                    本工具为个人开发的空间清理工具，具备清理系统日志、缓存文件、软件残留、浏览器隐私等多项功能。<LineBreak /><LineBreak />
+
+                    <Run FontSize="16"
+                         FontWeight="Bold"
+                         Text="注意事项：" />
+                    <LineBreak />
+                    工具默认将清理内容移动至回收站，可通过“恢复”功能找回文件。
+                    当前版本仍处于测试阶段，若担心误删，请勿点击“彻底清空”！请勿点击“彻底清空”！请勿点击“彻底清空”！<LineBreak />
+                    (尤其是清理注册表和清理插件！)<LineBreak /><LineBreak />
+
+                    <Run FontSize="16"
+                         FontWeight="Bold"
+                         Text="备注：" />
+                    <LineBreak />
+                    若在使用期间遇到任何问题，和有好的建议，欢迎联系作者。<LineBreak />
+                    QQ：3038136139<LineBreak />
+                    QQ邮箱：3038136139@qq.com<LineBreak /><LineBreak />
+
+                    <Run FontSize="16"
+                         FontWeight="Bold"
+                         Text="免责条款：" />
+                    <LineBreak />
+                    因使用本工具导致的任何损失由使用者自行承担。
+                    请勿用于非法用途，开发者不对由此产生的任何后果负责。</TextBlock>
+
+            </ScrollViewer>
+
+            <!--  确认按钮  -->
+            <StackPanel Grid.Row="2"
+                        Margin="0,20,10,10"
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal">
+                <Button Width="120"
+                        Click="Close_Click"
+                        Content="我已知晓"
+                        Style="{StaticResource ScanButton}" />
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
